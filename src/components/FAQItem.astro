@@ -1,0 +1,68 @@
+---
+const { title, content } = Astro.props;
+---
+
+<details name="frontend mentor question" class="accordion" open>
+  <summary class="accordion-title">
+    <h3>{title}</h3>
+    <div class="accordion-icon"></div>
+  </summary>
+  <p class="accordion-content">{content}</p>
+</details>
+
+<style>
+  .accordion {
+    margin-bottom: 22px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--light-pink);
+  }
+
+  .accordion:last-child {
+    margin-bottom: 12px;
+    border-bottom: none;
+  }
+
+  .accordion-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .accordion-title:hover h3 {
+    color: var(--pink);
+  }
+
+  .accordion-title h3 {
+    font-size: clamp(16px, 3cqw, 18.5px);
+    letter-spacing: -0.6px;
+    font-weight: 600;
+    color: var(--dark-purple);
+    transition: 0.3s;
+  }
+
+  .accordion-icon {
+    width: 30px;
+    height: 32px;
+    background-image: url(../assets/icon-plus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  details[open] .accordion-icon {
+    background-image: url(../assets/icon-minus.svg);
+  }
+
+  .accordion-content {
+    font-size: clamp(14px, 3cqw, 16px);
+    color: var(--grayish-purple);
+    margin-top: 22px;
+    line-height: 24px;
+  }
+
+  @media (width <= 460px) {
+    .accordion-title h2 {
+      max-width: 250px;
+    }
+  }
+</style>
